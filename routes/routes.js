@@ -5,6 +5,14 @@ const db = require('../db')
 const router = express.Router()
 
 router.get('/', (req, res) => {
+  res.redirect('/intro')
+})
+
+router.get('/intro', (req, res) => {
+  res.render('intro', {title: 'intro'})
+})
+
+/*router.get('/', (req, res) => {
   db.getUsers()
     .then(users => {
       res.render('index', {users: users})
@@ -12,6 +20,6 @@ router.get('/', (req, res) => {
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
     })
-})
+}) */
 
 module.exports = router
